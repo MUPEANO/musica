@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    margin: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  button:hover {
+    background: rgba(255, 255, 255, 0.28);
+  }
+</style>
+</head>
+<body>
+  <audio id="musica" src="cancion.mp3" loop></audio>
+  <button id="btn" onclick="reproducir()" aria-label="Reproducir música">▶</button>
+
+  <script>
+    const audio = document.getElementById("musica");
+    const btn = document.getElementById("btn");
+    function reproducir() {
+      if (audio.paused) {
+        audio.play();
+        btn.innerText = "❚❚";
+      } else {
+        audio.pause();
+        btn.innerText = "▶";
+      }
+    }
+  </script>
+</body>
+</html>
